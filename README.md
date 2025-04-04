@@ -17,6 +17,7 @@ You can get the following variables from the meta bussiness platform following t
 ACCESS_TOKEN=
 PHONE_NUMBER_ID=
 RECIPIENT_PHONE=
+VERIFY_TOKEN=
 ```
 
 ### 2\. Configuration to recieve messages
