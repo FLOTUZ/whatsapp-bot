@@ -12,7 +12,7 @@ export const getBotSettings = async (req: Request, res: Response) => {
 export const getBotSettingById = async (req: Request, res: Response) => {
   const { id } = req.params;
   const botSetting = await prisma.botSetting.findUnique({
-    where: { id: Number(id) },
+    where: { id: String(id) },
   });
   res.json(botSetting);
 };
@@ -27,7 +27,7 @@ export const createBotSetting = async (req: Request, res: Response) => {
 export const updateBotSetting = async (req: Request, res: Response) => {
   const { id } = req.params;
   const botSetting = await prisma.botSetting.update({
-    where: { id: Number(id) },
+    where: { id: String(id) },
     data: req.body,
   });
   res.json(botSetting);
@@ -37,7 +37,7 @@ export const updateBotSetting = async (req: Request, res: Response) => {
 export const deleteBotSetting = async (req: Request, res: Response) => {
   const { id } = req.params;
   const botSetting = await prisma.botSetting.delete({
-    where: { id: Number(id) },
+    where: { id: String(id) },
   });
   res.json(botSetting);
 };

@@ -5,7 +5,7 @@ import {
   createBot,
   updateBot,
   deleteBot,
-} from "controllers";
+} from "../controllers";
 
 const router = Router();
 

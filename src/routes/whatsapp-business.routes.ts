@@ -1,13 +1,21 @@
 import { Router } from "express";
 import {
+  verifyWebhook,
+  handleIncomingMessage,
   getWhatsappBusinesses,
   getWhatsappBusinessById,
   createWhatsappBusiness,
   updateWhatsappBusiness,
   deleteWhatsappBusiness,
-} from "controllers";
+} from "../controllers";
 
 const whatsappBusinessRouter = Router();
+
+// Route to verify the webhook
+whatsappBusinessRouter.get("/webhook", verifyWebhook);
+
+// Route to handle incoming messages
+whatsappBusinessRouter.post("/webhook", handleIncomingMessage);
 
 // Get all whatsapp businesses
 whatsappBusinessRouter.get("/", getWhatsappBusinesses);
