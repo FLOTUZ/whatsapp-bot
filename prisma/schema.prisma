@@ -28,15 +28,15 @@ model Bot {
 }
 
 model BotSetting {
-  id                        String                   @id @default(uuid())
-  bot_id                    String                   @unique
+  id                        String            @id @default(uuid())
+  bot_id                    String            @unique
   webhook                   String?
-  enabled                   Boolean                  @default(false)
-  bot                       Bot                      @relation(fields: [bot_id], references: [id])
-  whatsapp_business_setting WhatsAppBusinessSetting?
+  enabled                   Boolean           @default(false)
+  bot                       Bot               @relation(fields: [bot_id], references: [id])
+  whatsapp_business_setting WhatsappBusiness?
 }
 
-model WhatsAppBusinessSetting {
+model WhatsappBusiness {
   id                   String     @id @default(uuid())
   access_token         String?
   phone_number_id      String?
