@@ -1,21 +1,24 @@
 import { Router } from "express";
-import { verifyWebhook, handleIncomingMessage } from "../controllers";
+import messageRoutes from "./message.routes";
+import userRoutes from "./user.routes";
+import botRoutes from "./bot.routes";
+import botSettingRoutes from "./bot_setting.routes";
+import whatsappBusinessRoutes from "./whatsapp_business.routes";
 
-export const router = Router();
-// Ruta para verificar el webhook de WhatsApp
-router.get("/", verifyWebhook);
+const router = Router();
 
-// Ruta para recibir los mensajes de WhatsApp
-router.post("/", handleIncomingMessage);
-
+// Route to verify the webhook
+router.use("/message", messageRoutes);
 // group of routes for user
-router.use("/user", require("./user.routes"));
+router.use("/user", userRoutes);
 
 // group of routes for bot
-router.use("/bot", require("./bot.routes"));
+router.use("/bot", botRoutes);
 
 // group of routes for bot_setting
-router.use("/bot_setting", require("./bot_setting.routes"));
+router.use("/bot_setting", botSettingRoutes);
 
 // group of routes for whatsapp_business
-router.use("/whatsapp_business", require("./whatsapp_business.routes"));
+router.use("/whatsapp_business", whatsappBusinessRoutes);
+
+export default router;
