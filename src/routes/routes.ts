@@ -4,6 +4,7 @@ import userRoutes from "./user.routes";
 import botRoutes from "./bot.routes";
 import botSettingRoutes from "./bot_setting.routes";
 import whatsappBusinessRoutes from "./whatsapp-business.routes";
+import authRoutes from "./auth.route";
 
 const router = Router();
 
@@ -14,6 +15,9 @@ router.get("/", (req, res) => {
 
 // Route to verify the webhook
 router.use("/whatsapp-business", messageRoutes);
+
+// group of routes for auth
+router.use("/auth", authRoutes);
 
 // group of routes for user
 router.use("/user", userRoutes);
