@@ -6,9 +6,10 @@
     "build": "tsc",
     "start": "node dist/app.js",
     "dev": "nodemon --watch src --ext ts,js --exec \"ts-node src/app.ts\"",
+    "prisma:studio": "prisma studio --schema ./prisma/schema.prisma",
     "generate:dev": "prisma generate --schema ./prisma/schema.prisma --watch",
     "generate:prod": "prisma generate --schema ./prisma/schema.prisma --no-engine",
-    "migrate:dev": "prisma migrate dev --schema ./prisma/schema.prisma --watch",
+    "migrate:dev": "prisma migrate dev",
     "migrate:prod": "prisma migrate deploy --schema ./prisma/schema.prisma --no-engine"
   },
   "keywords": [
