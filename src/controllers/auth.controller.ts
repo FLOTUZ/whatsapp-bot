@@ -29,7 +29,10 @@ export const login = async (req: Request, res: Response) => {
       expiresIn: "1h",
     });
 
-    res.json({ token });
+    res.json({
+      token,
+      user: { id: user.id, name: user.name, email: user.email },
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -65,7 +68,7 @@ export const register = async (req: Request, res: Response) => {
       res.status(error.status).json({ message: error.message });
     } else {
       console.error(error);
-      res.status(500).json({ error: "Internal server error" });
+      res.status(500).json({ message: "Internal server error" });
     }
   }
 };
